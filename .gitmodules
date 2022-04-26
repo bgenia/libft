@@ -1,0 +1,3 @@
+[submodule "maketools"]
+	path = maketools
+	url = https://github.com/bgenia/maketools

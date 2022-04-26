@@ -1,0 +1,8 @@
+.vscode/
+
+build/
+
+*.a
+*.out
+
+*.dSYM/
