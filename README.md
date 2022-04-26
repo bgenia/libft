@@ -23,7 +23,7 @@ Also a log of bugs, bad decisions and unfinished ideas.
 ## Style guide
 
 LibFT fully conforms to the Norm standard of school 42.
-Additional code style decisions are listed in `Guidelines.md`.
+Additional code style decisions are listed in [[`Guidelines.md`]](Guidelines.md).
 
 [[Back to Top](#libft)]
 
