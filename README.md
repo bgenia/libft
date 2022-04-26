@@ -18,12 +18,11 @@ Also a log of bugs, bad decisions and unfinished ideas.
 1. [Compilation options](#compilation-options)
 1. [Design decisions](#design-decisions)
 1. [TODO](#todo)
-1. [Other versions](#other-versions)
 
 ## Style guide
 
 LibFT fully conforms to the Norm standard of school 42.
-Additional code style decisions are listed in [[`Guidelines.md`]](Guidelines.md).
+Additional code style decisions are listed in [[Guidelines.md](Guidelines.md)].
 
 [[Back to Top](#libft)]
 
@@ -35,36 +34,36 @@ You can include the entire library using the `ft/ft.h` header.
 `ft/`
 
 * `debug` - Debug utilities
-  * `assert.h` - Assert function
+    * `assert.h` - Assert function
 * `io` - Input/Output management
-  * `stream` - Generic I/O abstraction, similar to libc's FILEs
-    * `stream.h` - Stream structure and stream manipulation functions
-    * `stream_buffer.h` - Stream buffer management
-    * `stream_utils.h` - Additional stream I/O utilities
-  * `fdstream.h` - File-descriptor-based stream implementation for working with files and standard I/O
-  * `input.h` - Basic input functions (`get_char`, `get_line`, ...)
-  * `output.h` - Basic output functions (`put_int`, `put_float`, ...)
-  * `printf.h` - Modified stream-based ft_printf project (Every version of `printf` from libc is implemented)
+    * `stream` - Generic I/O abstraction, similar to libc's FILEs
+        * `stream.h` - Stream structure and stream manipulation functions
+        * `stream_buffer.h` - Stream buffer management
+        * `stream_utils.h` - Additional stream I/O utilities
+    * `fdstream.h` - File-descriptor-based stream implementation for working with files and standard I/O
+    * `input.h` - Basic input functions (`get_char`, `get_line`, ...)
+    * `output.h` - Basic output functions (`put_int`, `put_float`, ...)
+    * `printf.h` - Modified stream-based ft_printf project (Every version of `printf` from libc is implemented)
 * `memory` - Memory management tools
-  * `memory.h` - Memory allocation/deallocation functions and utils
-  * `memstream.h` - Memory-based stream implementation
-  * `gc.h` - Vector-based "Garbade Collector" for semi-automatic deallocation of a large number of pointers
+    * `memory.h` - Memory allocation/deallocation functions and utils
+    * `memstream.h` - Memory-based stream implementation
+    * `gc.h` - Vector-based "Garbade Collector" for semi-automatic deallocation of a large number of pointers
 * `string` - C string management
-  * `string.h` - Functions from libc's `string.h` + some extra utils
-  * `strstream.h` - String-based stream implementation
-  * `format.h` - Printf for strings, libc calls it `sprintf`
-  * `wstring.h` - Wide character string management (there is like 1 function because I didn't really use wstrings in 42 projects)
+    * `string.h` - Functions from libc's `string.h` + some extra utils
+    * `strstream.h` - String-based stream implementation
+    * `format.h` - Printf for strings, libc calls it `sprintf`
+    * `wstring.h` - Wide character string management (there is like 1 function because I didn't really use wstrings in 42 projects)
 * `process` - Process-related utils
-  * `env.h` - Env management (`getenv`, `putenv`, `setenv`, etc...)
+    * `env.h` - Env management (`getenv`, `putenv`, `setenv`, etc...)
 * `terminal` - Terminal management
-  * `termdefs.h` - Definitions for various terminal control sequences
-  * `termutils.h` - Implementations of complex terminal control sequences
+    * `termdefs.h` - Definitions for various terminal control sequences
+    * `termutils.h` - Implementations of complex terminal control sequences
 * `vector` - Dynamic array management
-  * `vector.h` - A dynamic array, some kind of std::vector from c++, can be used as a list/stack/queue if needed
-  * `vecstream.h` - Vector-based stream implementation
+    * `vector.h` - A dynamic array, some kind of std::vector from c++, can be used as a list/stack/queue if needed
+    * `vecstream.h` - Vector-based stream implementation
 * `x` - Experimental features, these are made more as a proof of concept rather than for actual use
-  * `functional.h` - Generic function pointer interface
-  * `algorithm.h` - Generic fp-based algorithms
+    * `functional.h` - Generic function pointer interface
+    * `algorithm.h` - Generic fp-based algorithms
 * `array.h` - Generic array utils
 * `convert.h` - Type conversion, stuff like `atoi` and `itoa`
 * `ctype.h` - Libc's `ctype.h` implementation
@@ -117,80 +116,80 @@ Configurable make/env variables:
 
 * `FT_OPTIONS`
 
-  Used to declare configuration macros (see below).
+    Used to declare configuration macros (see below).
 
-  ```make
-  export FT_OPTIONS = FT_INITIAL_INPUT_CAPACITY=16 FT_MALLOC_MODE_EXIT
-  ```
+    ```make
+    export FT_OPTIONS = FT_INITIAL_INPUT_CAPACITY=16 FT_MALLOC_MODE_EXIT
+    ```
 
 * `FT_OPTIMIZE`
 
-  Used to set custom optimization settings if needed (Default is -O2).
+    Used to set custom optimization settings if needed (Default is -O2).
 
-  ```make
-  export FT_OPTIMIZE = -Ofast
-  ```
+    ```make
+    export FT_OPTIMIZE = -Ofast
+    ```
 
-  > This will work even in debug build mode (`make debug`).
+    > This will work even in debug build mode (`make debug`).
 
 Configurable macros:
 
 * `ft/vector/vector.h`
 
-  `FT_VECTOR_DEFAULT_CAPACITY=<integer>` (Default: `8`)  
+    `FT_VECTOR_DEFAULT_CAPACITY=<integer>` (Default: `8`)  
 
     Default vector capacity if not specified.
 
-  `FT_VECTOR_GROWTH_FACTOR=<float>` (Default: `1.5`)  
+    `FT_VECTOR_GROWTH_FACTOR=<float>` (Default: `1.5`)  
 
     Capacity multiplier when vector grows.
 
-  `FT_VECTOR_SHRINK_FACTOR=<float>` (Default: `1.5`)  
+    `FT_VECTOR_SHRINK_FACTOR=<float>` (Default: `1.5`)  
 
     Unused space threshold after which vector shrinks to fit (if enabled).
     Computed as `1 / FT_VECTOR_SHRINK_FACTOR`.
 
 * `ft/io/input.h`
 
-  `FT_INITIAL_INPUT_CAPACITY=<integer>` (Default: `8`)  
+    `FT_INITIAL_INPUT_CAPACITY=<integer>` (Default: `8`)  
 
     Initial string capacity for reading functions (`get_line`, `get_all`, ...).
 
 * `ft/io/printf.h`
 
-  `FT_PRINTF_BUFFER_SIZE=<integer>` (Default: `1024`)  
+    `FT_PRINTF_BUFFER_SIZE=<integer>` (Default: `1024`)  
 
     Heap buffer size for `ft_*printf` functions (except `xprintf`).
 
-  `FT_XPRINTF_BUFFER_SIZE=<integer>` (Default: `512`)  
+    `FT_XPRINTF_BUFFER_SIZE=<integer>` (Default: `512`)  
 
     Stack buffer size for `ft_*xprintf` functions.
 
 * `ft/memory/memory.h`
 
-  `FT_MALLOC_MODE*` (Default: undefined):
+    `FT_MALLOC_MODE*` (Default: undefined):
 
-  Configures the behavior of `ft_malloc`. If none of these is defined works just like lib'c `malloc`.
+    Configures the behavior of `ft_malloc`. If none of these is defined works just like lib'c `malloc`.
 
-  * `FT_MALLOC_MODE_ABORT`
+    * `FT_MALLOC_MODE_ABORT`
 
-    If failed, prints error message to STDERR, then calls `abort()`.
+        If failed, prints error message to STDERR, then calls `abort()`.
 
-  * `FT_MALLOC_MODE_EXIT`
+    * `FT_MALLOC_MODE_EXIT`
 
-    If failed, prints error message to STDERR, then calls `exit(1)`.
+        If failed, prints error message to STDERR, then calls `exit(1)`.
 
-  * `FT_MALLOC_MODE_DISABLED`
+    * `FT_MALLOC_MODE_DISABLED`
 
-    Always returns `NULL`, intended for debugging purposes.
+        Always returns `NULL`, intended for debugging purposes.
 
-  `FT_MALLOC_ERROR_MESSAGE=<string>` (Default: `"Error"`)  
+    `FT_MALLOC_ERROR_MESSAGE=<string>` (Default: `"Error"`)  
 
     Error message printed to STDERR when `ft_malloc` fails and malloc mode is set to `EXIT` or `ABORT`.
 
 * `ft/process/env.h`
 
-  `FT_CLEARENV_EXIT_HOOK` (Default: undefined)  
+    `FT_CLEARENV_EXIT_HOOK` (Default: undefined)  
 
     If defined, hooks `ft_clearenv()` to `atexit()`, so you don't
     need to call it manually at the end of the program. Disabled by default
@@ -198,32 +197,32 @@ Configurable macros:
 
 * `ft/debug/assert`
 
-  `FT_ASSERT*` (Default: undefined):
+    `FT_ASSERT*` (Default: undefined):
 
-  Configures the behavior of `ft_assert`. If none of the following is defined,
-  prints an error message and calls `abort()` on assertion fail.
+    Configures the behavior of `ft_assert`. If none of the following is defined,
+    prints an error message and calls `abort()` on assertion fail.
 
-  * `FT_ASSERT_EXIT`
+    * `FT_ASSERT_EXIT`
 
-    Prints an error message and calls `exit(1)` on assertion fail.
+        Prints an error message and calls `exit(1)` on assertion fail.
 
-  * `FT_ASSERT_WARN`
+    * `FT_ASSERT_WARN`
 
-    Prints a warning message on assertion fail.
+        Prints a warning message on assertion fail.
 
-  * `FT_ASSERT_IGNORE`
+    * `FT_ASSERT_IGNORE`
 
-    Does nothing.
+        Does nothing.
 
 [[Back to Top](#libft)]
 
 ## Design decisions
 
-* Why not modular / separated into multiple libraries?
+* Why not modular / split into multiple libraries?
 
-  I don't see any reason in making this modular, libc isn't modular too after all.
-  All parts are closely interconnected and depend on each other, separating them
-  will require a major API change in an unfavorable way.
+    I don't see any reason in making this modular, libc isn't modular too after all.
+    All parts are closely interconnected and depend on each other, separating them
+    will require a major API change in an unfavorable way.
 
 [[Back to Top](#libft)]
 
@@ -232,14 +231,5 @@ Configurable macros:
 * ~~A proper README~~
 * Documentation (at least basic comments)
 * Tests (given the scale of the project probably never happening)
-
-[[Back to Top](#libft)]
-
-## Other versions
-
-Other branches of libft:
-
-* `project` - 42 version, fully conforms to the subject
-* `basic` - Basic version, only functions from the subject, improved project structure
 
 [[Back to Top](#libft)]
