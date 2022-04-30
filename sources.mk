@@ -179,13 +179,14 @@ SRC@src := \
 	src/io/stream/stream/ft_stream_close.c \
 	src/io/stream/stream_utils/ft_iosequence.c \
 	src/io/stream/stream_utils/ft_ioguard.c \
-	src/io/ft_stream_open_fd.c \
 	src/io/output/ft_put_line.c \
 	src/io/output/ft_put_int.c \
 	src/io/output/ft_put_string.c \
 	src/io/output/ft_putf_int.c \
 	src/io/output/ft_put_character.c \
 	src/io/output/ft_put_float.c \
+	src/io/fdstream/ft_stream_open_fd.c \
+	src/io/fdstream/ft_cstd.c \
 	src/tuples/ft_doublen.c \
 	src/tuples/ft_floatn.c \
 	src/tuples/ft_intn.c \
