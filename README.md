@@ -195,7 +195,7 @@ Configurable macros:
     need to call it manually at the end of the program. Disabled by default
     since `atexit` is not allowed in most school 42 projects.
 
-* `ft/debug/assert`
+* `ft/debug/assert.h`
 
     `FT_ASSERT*` (Default: undefined):
 
@@ -213,6 +213,14 @@ Configurable macros:
     * `FT_ASSERT_IGNORE`
 
         Does nothing.
+
+* `ft/io/fdstream.h`
+
+    `FT_CCLOSE_EXIT_HOOK` (Default: undefined)
+
+    If defined, hooks `ft_cclose()` to `atexit()`, so you don't
+    need to call it manually at the end of the program. Disabled by default
+    since `atexit` is not allowed in most school 42 projects.
 
 [[Back to Top](#libft)]
 
