@@ -90,8 +90,10 @@ SRC@src := \
 	src/memory/memory/ft_free.c \
 	src/memory/memory/ft_reallocarray.c \
 	src/memory/gc/ft_gc_track.c \
+	src/memory/gc/ft_gc_release.c \
 	src/memory/gc/ft_gc_untrack.c \
-	src/memory/gc/ft_gc_free_all.c \
+	src/memory/gc/ft_gc_destroy.c \
+	src/memory/gc/ft_gc_is_valid.c \
 	src/memory/gc/ft_gc_init.c \
 	src/memory/memstream/ft_stream_open_memory.c \
 	src/convert/ft_atoi.c \
