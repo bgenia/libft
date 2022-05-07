@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 22:41:23 by bgenia            #+#    #+#             */
-/*   Updated: 2022/04/15 20:02:19 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/05/07 13:20:49 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ static void
 
 	if (!pointer)
 		return (NULL);
-	record = ft_vector_push_back(&gc->records);
+	record = ft_vector_push_back(&gc->vec_records);
 	record->pointer = (uint64_t)pointer;
 	record->indirect = indirect;
 	if (destructor)
 		record->destructor = destructor;
 	else
 		record->destructor = free;
-	if (ft_vector_get_error(gc->records))
+	if (ft_vector_get_error(gc->vec_records))
 	{
 		if (indirect && pointer)
 			record->destructor(*(void **)pointer);

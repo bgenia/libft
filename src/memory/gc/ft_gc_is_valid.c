@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 13:05:59 by bgenia            #+#    #+#             */
-/*   Updated: 2022/05/07 13:06:19 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/05/07 13:20:49 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 bool
 	ft_gc_is_valid(t_gc *gc)
 {
-	return (!!gc->records);
+	return (!!gc->vec_records);
 }

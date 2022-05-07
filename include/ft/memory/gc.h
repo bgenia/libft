@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 22:41:32 by bgenia            #+#    #+#             */
-/*   Updated: 2022/05/07 13:05:51 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/05/07 13:21:26 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_gc_record
 
 typedef struct s_gc
 {
-	t_gc_record	*records;
+	t_gc_record	*vec_records;
 }	t_gc;
 
 bool
@@ -42,16 +42,20 @@ ft_gc_is_valid(t_gc *gc);
 // Track direct pointer (*p -> free(p))
 void
 *ft_gc_track(t_gc *gc, void *pointer, void *destructor);
+
 // Track indirect pointer (**p -> free(*p))
 void
-
 *ft_gc_track_indirect(t_gc *gc, void *pointer_ptr, void *destructor);
 
 bool
 ft_gc_untrack(t_gc *gc, void *pointer);
 
-// Frees all tracked pointers and destroys itself
+// Frees all tracked pointers
 void
-ft_gc_free_all(t_gc *gc);
+ft_gc_release(t_gc *gc);
+
+// Frees all tracked pointers and destroys gc
+void
+ft_gc_destroy(t_gc *gc);
 
 #endif

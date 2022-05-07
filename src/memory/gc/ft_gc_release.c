@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_gc_init.c                                       :+:      :+:    :+:   */
+/*   ft_gc_release.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/14 17:38:24 by bgenia            #+#    #+#             */
+/*   Created: 2021/08/14 17:41:44 by bgenia            #+#    #+#             */
 /*   Updated: 2022/05/07 13:20:49 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
-
 #include <ft/memory/gc.h>
 #include <ft/vector/vector.h>
 
-bool
-	ft_gc_init_with_capacity(t_gc *gc, size_t capacity, bool fixed)
+void
+	ft_gc_release(t_gc *gc)
 {
-	gc->vec_records = ft_vector_alloc_with_capacity(sizeof(*gc->vec_records), capacity);
-	if (fixed)
-		ft_vector_set_flags(gc->vec_records, 0);
-	else
-		ft_vector_set_flags(gc->vec_records, FT_VECTOR_GROWABLE);
-	return (!!gc->vec_records);
-}
+	t_gc_record	*record;
 
-bool
-	ft_gc_init(t_gc *gc)
-{
-	return (ft_gc_init_with_capacity(gc, 0, false));
+	record = ft_vector_get_last(gc->vec_records);
+	while (record)
+	{
+		if (record->pointer)
+		{
+			if (record->indirect)
+				record->destructor(*(void **)record->pointer);
+			else
+				record->destructor((void *)record->pointer);
+		}
+		ft_vector_pop_back(&gc->vec_records);
+		record = ft_vector_get_last(gc->vec_records);
+	}
 }
