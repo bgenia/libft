@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 22:41:32 by bgenia            #+#    #+#             */
-/*   Updated: 2022/05/07 13:21:26 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/05/07 13:56:43 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ ft_gc_is_valid(t_gc *gc);
 
 // Track direct pointer (*p -> free(p))
 void
-*ft_gc_track(t_gc *gc, void *pointer, void *destructor);
+*ft_gc_track(t_gc *gc, void *pointer, t_gcdestructor destructor);
 
 // Track indirect pointer (**p -> free(*p))
 void
-*ft_gc_track_indirect(t_gc *gc, void *pointer_ptr, void *destructor);
+*ft_gc_track_indirect(t_gc *gc, void *pointer_ptr, t_gcdestructor destructor);
 
 bool
 ft_gc_untrack(t_gc *gc, void *pointer);

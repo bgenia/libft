@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 22:41:23 by bgenia            #+#    #+#             */
-/*   Updated: 2022/05/07 13:20:49 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/05/07 13:58:01 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <ft/vector/vector.h>
 
 static void
-	*_track(t_gc *gc, void *pointer, void *destructor, bool indirect)
+	*_track(t_gc *gc, void *pointer, t_gcdestructor destructor, bool indirect)
 {
 	t_gc_record		*record;
 
@@ -44,13 +44,17 @@ static void
 
 // Frees pointer and returns NULL if gc's address vector cannot be expanded
 void
-	*ft_gc_track(t_gc *gc, void *pointer, void *destructor)
+	*ft_gc_track(t_gc *gc, void *pointer, t_gcdestructor destructor)
 {
 	return (_track(gc, pointer, destructor, false));
 }
 
 void
-	*ft_gc_track_indirect(t_gc *gc, void *pointer_ptr, void *destructor)
+	*ft_gc_track_indirect(
+		t_gc *gc,
+		void *pointer_ptr,
+		t_gcdestructor destructor
+	)
 {
 	return (_track(gc, pointer_ptr, destructor, true));
 }
