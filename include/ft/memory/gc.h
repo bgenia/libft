@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 22:41:32 by bgenia            #+#    #+#             */
-/*   Updated: 2021/10/18 01:26:32 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/05/07 13:05:51 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ bool
 ft_gc_init(t_gc *gc);
 bool
 ft_gc_init_with_capacity(t_gc *gc, size_t capacity, bool fixed);
+
+bool
+ft_gc_is_valid(t_gc *gc);
 
 // Track direct pointer (*p -> free(p))
 void
