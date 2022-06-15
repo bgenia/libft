@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 02:18:45 by bgenia            #+#    #+#             */
-/*   Updated: 2022/04/15 20:02:19 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/06/15 20:20:46 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_stream
 {
 	t_stream	stream;
 
-	stream = (t_stream){0};
+	stream = (t_stream){};
 	stream.is_valid = is_valid;
 	if (!stream.is_valid)
 		return (stream);
